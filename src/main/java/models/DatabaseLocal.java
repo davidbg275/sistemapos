@@ -1,42 +1,49 @@
 package models;
 
+import java.io.File;
 import java.sql.*;
 
 public class DatabaseLocal {
 
-  // Ruta donde se guardará tu base local
-  private static final String SQLITE_URL = "jdbc:sqlite:/home/david/Documentos/java/papeleria/src/main/resources/data/papeleria.db";
+  // Cambia la ruta si lo prefieres (pero crea la carpeta 'data' antes).
+  public static final String SQLITE_FILE = "/home/david/Documentos/java/papeleria/src/main/resources/data/papeleria.db";
+  public static final String SQLITE_URL = "jdbc:sqlite:" + SQLITE_FILE;
 
-  // Método que crea las tablas si no existen
-  public static void ensureLocalSqlite() {
-    // 🔹 Tu código SQL va aquí dentro (es exactamente lo que copiaste)
+  public static void ensureTables() {
+    // Crea carpeta si no existe
+    File dir = new File("/home/david/Documentos/java/papeleria/src/main/resources/data");
+    if (!dir.exists())
+      dir.mkdirs();
+
     String createUsuarios = """
             create table if not exists usuarios_local (
-              id text primary key,
+              id       text primary key,
               username text unique not null,
-              password text not null,
-              rol text not null,
-              activo integer not null
+              password text not null,   -- solo para práctica
+              rol      text not null,
+              activo   integer not null -- 1/0
             );
         """;
 
     String createSync = """
             create table if not exists sync_state (
-              key text primary key,
+              key   text primary key,
               value text
             );
         """;
 
-    // 🔹 Conexión y ejecución
     try (Connection conn = DriverManager.getConnection(SQLITE_URL);
         Statement st = conn.createStatement()) {
-
       st.execute(createUsuarios);
       st.execute(createSync);
-      System.out.println("✅ Tablas locales listas en SQLite (" + SQLITE_URL + ")");
-
+      System.out.println("✅ SQLite listo en: " + SQLITE_FILE);
     } catch (SQLException e) {
-      System.err.println("⚠️ Error al crear tablas locales: " + e.getMessage());
+      System.err.println("⚠️ Error creando tablas locales: " + e.getMessage());
     }
+  }
+
+  /** Conexión simple a SQLite */
+  public static Connection connect() throws SQLException {
+    return DriverManager.getConnection(SQLITE_URL);
   }
 }

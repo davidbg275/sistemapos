@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controllers.LoginControllerFX"
+            prefWidth="360" prefHeight="240"
+            style="-fx-background-color: #0B1221;">
+    
+    <VBox alignment="CENTER" spacing="10" AnchorPane.topAnchor="20.0" AnchorPane.bottomAnchor="20.0"
+          AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+        
+        <Label text="Iniciar Sesión" style="-fx-text-fill: white; -fx-font-size: 18px;"/>
+
+        <TextField fx:id="txtUsuario" promptText="Usuario" prefWidth="200"/>
+        <PasswordField fx:id="txtPassword" promptText="Contraseña" prefWidth="200"/>
+        
+        <Button fx:id="btnIngresar" text="Ingresar" onAction="#onIngresar"
+                style="-fx-background-color: #2563EB; -fx-text-fill: white; -fx-font-weight: bold;"
+                prefWidth="200"/>
+        
+        <Label fx:id="lblEstado" text="Esperando..." style="-fx-text-fill: #9CA3AF;"/>
+    </VBox>
+</AnchorPane>
+
