@@ -1,4 +1,5 @@
 package models;
+
 import java.io.Console;
 import java.sql.*;
 import java.util.Scanner;
@@ -10,6 +11,8 @@ public class Login {
   private static final String DB_PASS = "admin123";
 
   public static void main(String[] args) {
+
+    DatabaseLocal.ensureLocalSqlite();
     // 1) Pedir credenciales por terminal
     Scanner sc = new Scanner(System.in);
     System.out.print("Usuario: ");
