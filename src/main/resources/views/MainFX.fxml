@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -7,72 +8,63 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 
-<BorderPane xmlns="http://javafx.com/javafx"
+<BorderPane fx:id="mainPane"
+            xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="controllers.MainController">
+  <!-- BARRA DE COMPRAS-->
+  <center>
+    <BorderPane fx:id="contentArea"/>
+  </center>
 
-      <!-- BARRA DE COMPRAS-->
-    <center>
-        <AnchorPane fx:id="contentArea" />
-    </center>
-
-    <!-- MENU DE OPCIONES-->
-    
-
-    <left>
-        <VBox stylesheets="@../styles/style.css" alignment="BASELINE_LEFT" spacing="30" style="-fx-background-color: #0E1A2B; -fx-padding: 30;">
-            <Button fx:id="btnVentas" onAction="#onVentas" >
-                <graphic>
-                    <ImageView fitHeight="50" fitWidth="50"  preserveRatio="true">
-                        <image>
-                            <Image url="@../images/ventas-blanco.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
-            
-            <Button fx:id="btnInventario" onAction="#onInventario" >
-                 <graphic>
-                    <ImageView fitHeight="50" fitWidth="50"  preserveRatio="true">
-                        <image>
-                            <Image url="@../images/inventario-blanco.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
-
-                        <Button fx:id="btnReportes" onAction="#onReportes" >
-                 <graphic>
-                    <ImageView fitHeight="50" fitWidth="50"  preserveRatio="true">
-                        <image>
-                            <Image url="@../images/stats-blanco.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
-
-            <Button fx:id="btnUsuarios" onAction="#onUsuarios" >
-                 <graphic>
-                    <ImageView fitHeight="50" fitWidth="50"  preserveRatio="true">
-                        <image>
-                            <Image url="@../images/usuarios-blanco.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
-
-            <Button fx:id="btnConfig" onAction="#onConfig">
-                 <graphic>
-                    <ImageView fitHeight="50" fitWidth="50"  preserveRatio="true">
-                        <image>
-                            <Image url="@../images/settings-blanco.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
-
-        </VBox>
-    </left>
-  
-
+  <!-- MENU DE OPCIONES-->
+  <left>
+    <VBox stylesheets="@../styles/style.css" alignment="BASELINE_LEFT" spacing="30" style="-fx-background-color: #0E1A2B; -fx-padding: 30;">
+      <Button fx:id="btnVentas" onAction="#onVentas">
+        <graphic>
+          <ImageView fitHeight="50" fitWidth="50" preserveRatio="true">
+            <image>
+              <Image url="@../images/ventas-blanco.png"/>
+            </image>
+          </ImageView>
+        </graphic>
+      </Button>
+      <Button fx:id="btnInventario" onAction="#onInventario">
+        <graphic>
+          <ImageView fitHeight="50" fitWidth="50" preserveRatio="true">
+            <image>
+              <Image url="@../images/inventario-blanco.png"/>
+            </image>
+          </ImageView>
+        </graphic>
+      </Button>
+      <Button fx:id="btnReportes" onAction="#onReportes">
+        <graphic>
+          <ImageView fitHeight="50" fitWidth="50" preserveRatio="true">
+            <image>
+              <Image url="@../images/stats-blanco.png"/>
+            </image>
+          </ImageView>
+        </graphic>
+      </Button>
+      <Button fx:id="btnUsuarios" onAction="#onUsuarios">
+        <graphic>
+          <ImageView fitHeight="50" fitWidth="50" preserveRatio="true">
+            <image>
+              <Image url="@../images/usuarios-blanco.png"/>
+            </image>
+          </ImageView>
+        </graphic>
+      </Button>
+      <Button fx:id="btnConfig" onAction="#onConfig">
+        <graphic>
+          <ImageView fitHeight="50" fitWidth="50" preserveRatio="true">
+            <image>
+              <Image url="@../images/settings-blanco.png"/>
+            </image>
+          </ImageView>
+        </graphic>
+      </Button>
+    </VBox>
+  </left>
 </BorderPane>

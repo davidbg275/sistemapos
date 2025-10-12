@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
 public class MainController {
@@ -26,8 +27,7 @@ public class MainController {
   private Button btnConfig;
 
   @FXML
-  private AnchorPane contentArea;
-
+  private BorderPane contentArea;
 
   /** Llamar DESPUÉS de cargar el FXML. */
   public void configureForRole(String rol) {
@@ -48,18 +48,16 @@ public class MainController {
       btnReportes.setDisable(false);
       btnInventario.setDisable(false);
       btnConfig.setDisable(false);
-     
+
     }
   }
 
   // Handlers de ejemplo (ajusta a tus flujos reales)
-  
 
   @FXML
   private void onVentas() throws IOException {
     Parent fxml = FXMLLoader.load(getClass().getResource("/views/ventas.fxml"));
-    contentArea.getChildren().removeAll();
-    contentArea.getChildren().setAll(fxml);
+    contentArea.setCenter(fxml);
   }
 
   @FXML
