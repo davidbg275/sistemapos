@@ -1,8 +1,10 @@
 package controllers;
 
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,6 +14,8 @@ import javafx.scene.control.TextField;
 import models.AuthRepository;
 import models.AuthRepositoryImpl;
 import models.DatabaseLocal;
+import javafx.geometry.Rectangle2D;
+import javafx.stage.Screen;
 
 public class LoginControllerFX {
 
@@ -72,6 +76,13 @@ public class LoginControllerFX {
 
         Stage stage = (Stage) btnIngresar.getScene().getWindow();
         stage.setScene(new Scene(root));
+
+        Rectangle2D bounds = Screen.getPrimary().getVisualBounds(); // excluye barra superior
+        stage.setX(bounds.getMinX());
+        stage.setY(bounds.getMinY());
+        stage.setWidth(bounds.getWidth());
+        stage.setHeight(bounds.getHeight());
+
         stage.show();
 
       } catch (Exception e) {
