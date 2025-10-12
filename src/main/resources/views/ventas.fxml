@@ -5,6 +5,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml/1"
+            stylesheets="@../styles/ventas.css"
             fx:controller="controllers.VentasController">
   <!-- RIGHT (verde) -->
   <right>
@@ -17,11 +18,22 @@
   <center>
     <BorderPane style="-fx-background-color: rgba(2, 230, 255, 1);">
       <top>
-        <VBox prefHeight="200" style="-fx-background-color: #fb0b0bff;">
-          <Label text="Punto de Venta" style="-fx-font-size: 16px;"/>
-          <Label text="Busca poductos y gestiona tu carrito de compras" style="-fx-font-size: 16px;"/>
+        <VBox styleClass="boxtitulo" prefHeight="200" 
+              style="-fx-background-color: #fb0b0bff;" 
+              spacing="10" >
+
+          <Label    styleClass="titulo"
+                    text="Punto de Venta"/>
+
+          <Label    text="Busca poductos y gestiona tu carrito de compras" 
+                    styleClass="subtitulo"/>
+
+          <TextField  fx:id="txtBuscar" 
+                      promptText="Buscar por codigo o nombre de producto..."
+                      styleClass="busqueda"/>
         </VBox>
       </top>
+
     </BorderPane>
   </center>
 </BorderPane>
