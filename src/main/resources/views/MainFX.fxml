@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.MainController">
+    <top>
+        <MenuBar>
+            <Menu text="Archivo">
+                <MenuItem text="Salir" onAction="#onSalir"/>
+            </Menu>
+            <Menu fx:id="menuAdmin" text="Admin">
+                <MenuItem fx:id="itemConfig" text="Configuración" onAction="#onConfig"/>
+            </Menu>
+        </MenuBar>
+    </top>
+
+    <center>
+        <VBox spacing="12" alignment="CENTER">
+            <Button fx:id="btnVentas"     text="Ventas"     onAction="#onVentas"/>
+            <Button fx:id="btnInventario" text="Inventario" onAction="#onInventario"/>
+            <Button fx:id="btnReportes"   text="Reportes"   onAction="#onReportes"/>
+            <Button fx:id="btnUsuarios"   text="Usuarios"   onAction="#onUsuarios"/>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox fx:id="panelAvanzado" spacing="8" alignment="CENTER_RIGHT" style="-fx-padding: 8;">
+            <Label text="Panel avanzado (solo Admin)"/>
+        </HBox>
+    </bottom>
+</BorderPane>

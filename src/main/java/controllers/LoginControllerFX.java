@@ -1,5 +1,9 @@
 package controllers;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -57,6 +61,24 @@ public class LoginControllerFX {
       lblEstado.setText("Acceso " + res.modo + " | Rol: " + res.rol);
       // TODO: aquí navegas a la siguiente pantalla según el rol
       // por ejemplo: abrir vista de ventas si VENDEDOR, etc.
+
+      try {
+        var url = getClass().getResource("/views/MainFX.fxml");
+        FXMLLoader loader = new FXMLLoader(url);
+        Parent root = loader.load();
+
+        MainController main = loader.getController();
+        main.configureForRole(res.rol); // pásale el rol
+
+        Stage stage = (Stage) btnIngresar.getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+
+      } catch (Exception e) {
+        e.printStackTrace();
+        lblEstado.setText("NO SE PUDO ABRIR LA PANTALLA: " + e.getMessage());
+      }
+
     } else {
       if (res.modo == LoginController.LoginMode.ONLINE) {
         lblEstado.setText("Credenciales incorrectas (ONLINE).");
