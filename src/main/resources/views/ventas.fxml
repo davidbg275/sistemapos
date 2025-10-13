@@ -2,6 +2,10 @@
 
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml/1"
@@ -9,31 +13,75 @@
             fx:controller="controllers.VentasController">
   <!-- RIGHT (verde) -->
   <right>
-    <StackPane prefWidth="460" style="-fx-background-color: #43fb0bff;">
-      <Label text="DETALLE DE VENTA" style="-fx-font-size: 16px;"/>
-    </StackPane>
-  </right>
+  <VBox fx:id="carritoContainer"
+        spacing="10"
+        style="-fx-padding: 12; -fx-background-color: #ffffff;"
+        prefWidth="360" minWidth="260" maxWidth="380">
+
+    <!-- Título -->
+    <Label text="Carrito de Compras" styleClass="titulo-carrito"/>
+
+    <!-- Lista de items -->
+    <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED">
+      <content>
+        <VBox fx:id="itemsContainer" spacing="8" />
+      </content>
+    </ScrollPane>
+
+    <!-- Resumen -->
+    <GridPane hgap="10" vgap="6" styleClass="resumen-carrito">
+      <columnConstraints>
+        <ColumnConstraints hgrow="ALWAYS" />
+        <ColumnConstraints halignment="RIGHT" minWidth="80" />
+      </columnConstraints>
+
+      <!-- Fila Subtotal -->
+      <Label text="Subtotal:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+      <Label fx:id="lblSubtotal" text="0.00" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+      <!-- Fila Total -->
+      <Label text="Total:" styleClass="total-titulo"
+             GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+      <Label fx:id="lblTotal" text="0.00" styleClass="total-precio"
+             GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <!-- Botones -->
+    <VBox spacing="8">
+      <Button text="Pagar en Efectivo" styleClass="btn-efectivo"/>
+      <Button text="Pagar con Tarjeta" styleClass="btn-tarjeta"/>
+      <Button text="Limpiar Carrito" styleClass="btn-limpiar"/>
+    </VBox>
+  </VBox>
+</right>
+
 
   <!-- CENTER (resto del espacio) -->
-  <center>
-    <BorderPane style="-fx-background-color: rgba(2, 230, 255, 1);">
+<center>
+    <BorderPane style="-fx-background-color: #f2f5f7;">
       <top>
-        <VBox styleClass="boxtitulo" prefHeight="200" 
-              style="-fx-background-color: #fb0b0bff;" 
-              spacing="10" >
-
-          <Label    styleClass="titulo"
-                    text="Punto de Venta"/>
-
-          <Label    text="Busca poductos y gestiona tu carrito de compras" 
-                    styleClass="subtitulo"/>
-
-          <TextField  fx:id="txtBuscar" 
-                      promptText="Buscar por codigo o nombre de producto..."
-                      styleClass="busqueda"/>
+        <VBox styleClass="boxtitulo" spacing="10">
+          <Label text="Punto de Venta" styleClass="titulo"/>
+          <Label text="Busca productos y gestiona tu carrito de compras" styleClass="subtitulo"/>
+          <TextField promptText="Buscar por código o nombre del producto..." styleClass="busqueda"/>
         </VBox>
       </top>
 
+      <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED"
+                    style="-fx-background-color: transparent; -fx-padding: 24 20 20 35" >
+          <content>
+            <TilePane prefTileWidth="210" prefTileHeight="110"
+                      hgap="14" vgap="14" tileAlignment="TOP_LEFT"
+                      style="-fx-padding: 14;">
+              <!-- Solo vista: repetimos la plantilla como ejemplo visual -->
+              <fx:include source="ProductCard.fxml"/>
+              <fx:include source="ProductCard.fxml"/>
+              
+            </TilePane>
+          </content>
+        </ScrollPane>
+      </center>
     </BorderPane>
   </center>
 </BorderPane>

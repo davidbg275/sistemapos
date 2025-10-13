@@ -11,6 +11,7 @@
 }
 
 .boxtitulo{
+    -fx-background-color: #c8eef308;
     -fx-padding: 20 20 10 55;
 }
 
@@ -29,3 +30,96 @@
     -fx-border-width: 1.5;
 }
 
+.titulo-carrito {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+.item-carrito {
+    -fx-background-color: #f9f9f9;
+    -fx-padding: 8;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+
+.nombre-prod {
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+.codigo-prod {
+    -fx-font-size: 11px;
+    -fx-text-fill: #777;
+}
+
+.btn-cantidad {
+    -fx-background-color: #cce7e2;
+    -fx-background-radius: 50%;
+    -fx-font-weight: bold;
+    -fx-text-fill: #005b4f;
+    -fx-min-width: 28px;
+    -fx-min-height: 28px;
+}
+
+.precio-prod {
+    -fx-font-weight: bold;
+    -fx-text-fill: #16a085;
+    -fx-font-size: 14px;
+}
+
+.resumen-carrito {
+    -fx-padding: 10;
+    -fx-background-color: #fafafa;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5;
+}
+
+.total-titulo {
+    -fx-font-weight: bold;
+}
+
+.total-precio {
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-text-fill: #16a085;
+}
+
+.btn-efectivo {
+    -fx-background-color: #27ae60;
+    -fx-text-fill: white;
+    -fx-background-radius: 6;
+    -fx-font-weight: bold;
+}
+
+.btn-tarjeta {
+    -fx-background-color: #2980b9;
+    -fx-text-fill: white;
+    -fx-background-radius: 6;
+    -fx-font-weight: bold;
+}
+
+.btn-limpiar {
+    -fx-background-color: #bdc3c7;
+    -fx-text-fill: #2c3e50;
+    -fx-background-radius: 6;
+}
+
+/* Limpia el viewport del scroll del centro */
+.scroll-pane > .viewport { -fx-background-color: transparent; }
+
+/* Cards de productos */
+.card-prod {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: #e5e7eb;
+    -fx-border-radius: 10;
+    -fx-padding: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.04), 8, 0, 0, 2);
+}
+.prod-nombre { -fx-font-weight: bold; -fx-text-fill: #2d2f31; }
+.prod-codigo { -fx-font-size: 11px; -fx-text-fill: #7a7f85; }
+.prod-precio { -fx-font-weight: bold; -fx-text-fill: #16a085; }
+.btn-add     { -fx-background-color: #0ea5b7; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-min-width: 34; }
+.icono-demo  { -fx-background-color: #0ea5b7; -fx-background-radius: 6; }
