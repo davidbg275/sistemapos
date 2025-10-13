@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.geometry.*?>
+<?import javafx.geometry.*?>   <!-- IMPORTANTE para CENTER_LEFT, etc. -->
+
 
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml/1"
       styleClass="card-prod" spacing="6">
 
+  <!-- OK: HBox sí soporta alignment -->
   <HBox spacing="6" alignment="CENTER_LEFT">
+    <Region styleClass="icono-demo" prefWidth="28" prefHeight="28"/>
     <VBox spacing="2">
-      <Region styleClass="icono-demo" prefWidth="10" prefHeight="18" alignment="CENTER_LEFT"/>
       <Label text="Nombre del producto" styleClass="prod-nombre"/>
       <Label text="Código: CÓD000" styleClass="prod-codigo"/>
     </VBox>
   </HBox>
 
-  <HBox alignment="CENTER_LEFT" spacing="8">
+  <!-- OK: HBox sí soporta alignment -->
+  <HBox spacing="8" alignment="CENTER_LEFT">
     <Label text="00.00" styleClass="prod-precio"/>
     <Pane HBox.hgrow="ALWAYS"/>
     <Button text="+" styleClass="btn-add"/>
   </HBox>
 </VBox>
+

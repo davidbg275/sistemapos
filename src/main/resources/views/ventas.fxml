@@ -6,6 +6,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Button?>
+<?import javafx.geometry.*?>
+
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml/1"
@@ -16,7 +18,7 @@
   <VBox fx:id="carritoContainer"
         spacing="10"
         style="-fx-padding: 12; -fx-background-color: #ffffff;"
-        prefWidth="360" minWidth="260" maxWidth="380">
+        prefWidth="360">
 
     <!-- Título -->
     <Label text="Carrito de Compras" styleClass="titulo-carrito"/>
